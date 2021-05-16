@@ -23,13 +23,13 @@ jobs:
     - name: Allow RDP Property from Regdit
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
     - name: Assign User
-      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "Techguy20" -Force)
+      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "secuhex" -Force)
     - name: Create Tunnel
       run: Start-Process Powershell -ArgumentList '-Noexit -Command ".\ngrok\ngrok.exe tcp --region=ap 3389"'
     - name: Download Important Files.
       run: |
         Invoke-WebRequest https://raw.githubusercontent.com/chendagithub/mynewwebsite/main/check.bat -OutFile check.bat
-    - name: IP
+    - name: Show Login IP
       run: cmd /c check.bat
     - name: Download Timeout Script
       run: Invoke-WebRequest https://raw.githubusercontent.com/pbinsizlub/grdpvm/main/timeout.ps1 -OutFile timeout.ps1
