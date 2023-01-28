@@ -1,7 +1,7 @@
-$i = 3600
+$i = 360000
 do {
     Write-Host $i
-    Sleep 1
+    Sleep 60
     $i--
 } while ($i -gt 0)
 cls
